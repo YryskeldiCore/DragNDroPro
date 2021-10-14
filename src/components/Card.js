@@ -12,34 +12,34 @@ const Card = () => {
     const [currentCard, setCurrentCard] = useState(null);
 
     const dragStartHandler = (card) => {
-        console.log('drag start', card.name)
-        setCurrentCard(card)
+        console.log('drag start', card.name);
+        setCurrentCard(card);
     }
 
     const dragLeaveHandler = (e, name) => {
-        console.log('drag leave', name)
-        e.target.style.backgroundColor = 'white'
+        console.log('drag leave', name);
+        e.target.style.backgroundColor = 'white';
     }
 
     const dragOverHandler = (e, name) => {
-        e.preventDefault()
-        console.log('drag over', name)
-        e.target.style.backgroundColor = 'red'
+        e.preventDefault();
+        console.log('drag over', name);
+        e.target.style.backgroundColor = 'red';
     }
 
     const dragEndHandler = (e, name) => {
-        console.log('drag end', name)
-        e.target.style.backgroundColor = 'white'
+        console.log('drag end', name);
+        e.target.style.backgroundColor = 'white';
     }
 
     const dropHandler = (e, card) => {
         e.preventDefault()
         setCards(cards.map(c => {
             if(c.id === card.id){
-                return {...c, order: currentCard.order}
+                return {...c, order: currentCard.order};
             }
             if(c.id === currentCard.id){
-                return {...c, order: card.order}
+                return {...c, order: card.order};
             }
 
             return c;
@@ -48,9 +48,9 @@ const Card = () => {
 
     const sortCard = (a, b) => {
         if(a.order > b.order){
-            return 1
+            return 1;
         } else {
-            return -1
+            return -1;
         }
     }
     

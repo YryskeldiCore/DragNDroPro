@@ -63,9 +63,9 @@ const Board = () => {
                 return board;
             }
             if(b.id === currentBoard.id){
-                return currentBoard
+                return currentBoard;
             }
-            return b
+            return b;
         }))
     }
 
@@ -78,7 +78,7 @@ const Board = () => {
 
     const dropCardHandler = (e, board) => {
         if(e.target.className !== 'boarditem'){
-            board.items.push(currentBoardItem)
+            board.items.push(currentBoardItem);
             const currentItemIndex = currentBoard.items.indexOf(currentBoardItem); 
             currentBoard.items.splice(currentItemIndex, 1);
             setBoards(boards.map(b => {
@@ -105,7 +105,7 @@ const Board = () => {
         const newTask = {
             id: Date.now(),
             name: name
-        }
+        };
         board.items.push(newTask);
         setBoards(boards.map(b => {
             return b;
@@ -118,34 +118,34 @@ const Board = () => {
         const newArr = [...board.items.slice(0, currentBoardItemIndex), ...board.items.slice(currentBoardItemIndex + 1)];
         setBoards(boards.map(b => {
             if(b.id === board.id){
-                b.items = newArr
-                return b
+                b.items = newArr;
+                return b;
             }
-            return b
+            return b;
         }))
     }
 
     const editBoardItem = (e, id, board) => {
         if(e.type !== 'click'){
-            e.preventDefault()
+            e.preventDefault();
         }
         setBoards(boards.map(b => {
             if(b.id === board.id){
-                const arr = [...b.items]
+                const arr = [...b.items];
                 arr.forEach(item => {
                     if(item.id === id){
-                        item.name = editText
-                        return b
+                        item.name = editText;
+                        return b;
                     }
                 })
             }
-            return b
+            return b;
         }))
         setIsEditShown(null);
     }
 
     const handleEditChange = (editValue) => {
-        setEditText(editValue)
+        setEditText(editValue);
     }
 
     return(
